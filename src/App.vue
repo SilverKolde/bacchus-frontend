@@ -1,28 +1,34 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar
+        app
+        color="primary"
+        dark
+    >
+      <router-link to="/" class="white--text text-decoration-none">
+       <h2>Bacchus</h2>
+      </router-link>
+      <v-spacer></v-spacer>
+      <router-link to="/closed" class="white--text text-decoration-none">
+        <h5>ENDED AUCTIONS</h5>
+      </router-link>
+    </v-app-bar>
+    <router-view></router-view>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import OpenAuctions from "@/components/OpenAuctions";
+// import ClosedAuctions from "@/components/ClosedAuctions";
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  //
+  // components: {
+  //   OpenAuctions,
+  //   ClosedAuctions
+  // }
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
+};
+</script>
