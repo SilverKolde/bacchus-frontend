@@ -18,17 +18,8 @@
 </template>
 
 <script>
-// import OpenAuctions from "@/components/OpenAuctions";
-// import ClosedAuctions from "@/components/ClosedAuctions";
 
 export default {
   name: 'App',
-  //
-  // components: {
-  //   OpenAuctions,
-  //   ClosedAuctions
-  // }
-
-
 };
 </script>

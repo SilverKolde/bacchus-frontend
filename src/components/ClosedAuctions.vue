@@ -73,7 +73,10 @@ export default {
             this.bids = res.data;
             this.mapBidsPerProduct();
           })
-          .catch(error => alert("Could not fetch ended auctions\n" + error));
+          .catch(error => {
+            alert("Could not fetch ended auctions\n" + error);
+            console.log(error);
+          });
     },
     mapBidsPerProduct() {
       this.bids.forEach(bid => {

@@ -48,7 +48,11 @@ export default {
     products: function () {
       const allProducts = this.$store.getters.getProducts;
       return allProducts
-          .filter(p => this.selected.length === 0 || this.selected.indexOf(p.productCategory) >= 0);
+          .filter(p => {
+            const nothingIsSelected = this.selected.length === 0;
+            const categoryIsSelected = this.selected.indexOf(p.productCategory) >= 0;
+            return nothingIsSelected || categoryIsSelected;
+          });
     },
     categories: function () {
       return this.$store.getters.getCategories

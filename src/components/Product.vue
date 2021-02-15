@@ -174,7 +174,10 @@ export default {
 
         axios.post('http://localhost:8081/bids', bid)
             .then( this.bidSuccessful() )
-            .catch(error => alert("Something went wrong, bid was not saved.\n" + error))
+            .catch(error => {
+              alert("Something went wrong, bid was not saved.\n" + error);
+              console.log(error);
+            });
 
       } else {
         alert("Please enter correct inputs")

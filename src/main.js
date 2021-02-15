@@ -11,9 +11,10 @@ Vue.config.productionTip = false
 Vue.use(Vuex);
 Vue.use(VueRouter);
 
-// TODO error handling
-// TODO unit tests
 // TODO initial load should have a loading icon
+// TODO in case of errors, display something nicer
+// TODO unit tests
+// TODO winner shouldn't be declared before auction is over
 
 const routes = [
     {
@@ -39,7 +40,10 @@ const store = new Vuex.Store({
     fetchProducts({commit}) {
       axios.get("http://localhost:8081/products")
           .then(res => commit('SET_PRODUCTS', res.data))
-          .catch(error => alert("An error has occurred fetching products!\n" + error));
+          .catch(error => {
+              alert("An error has occurred while fetching new products!\n" + error);
+              console.log(error);
+          });
     },
     fetchNewProduct() {
       axios.get("http://localhost:8081/products")
@@ -64,9 +68,11 @@ const store = new Vuex.Store({
                 this.state.categories.push(cat);
               }
             }
-  
           })
-          .catch(error => alert("An error has occurred fetching products!\n" + error));
+          .catch(error => {
+              alert("An error has occurred while fetching new products!\n" + error);
+              console.log(error);
+          });
     }
   },
   mutations: {
